@@ -27,3 +27,7 @@ shape = SubResource("RectangleShape2D_s8obx")
 VelocityComponent = NodePath("../VelocityComponent")
 
 [node name="TakeAndPlaceComponent" parent="." instance=ExtResource("5_gy078")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0

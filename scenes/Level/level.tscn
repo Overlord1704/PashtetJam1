@@ -1,9 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://4x5pmtavhtc1"]
+[gd_scene load_steps=4 format=3 uid="uid://4x5pmtavhtc1"]
 
 [ext_resource type="PackedScene" uid="uid://cxs4qmnvhaqs2" path="res://scenes/Player/player.tscn" id="1_0m6js"]
+[ext_resource type="Texture2D" uid="uid://dm4je2txt7yn7" path="res://assets/Background/Black(1)(1)(1)(1).png" id="1_ouhyb"]
+[ext_resource type="PackedScene" path="res://scenes/Level/location.tscn" id="2_jx5qx"]
 
 [node name="Level" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(548, 268)
+scale = Vector2(12.6209, 10.7042)
+texture = ExtResource("1_ouhyb")
 
 [node name="Player" parent="." instance=ExtResource("1_0m6js")]
 position = Vector2(552, 264)
 scale = Vector2(0.52, 0.52)
+
+[node name="Location" parent="." instance=ExtResource("2_jx5qx")]
