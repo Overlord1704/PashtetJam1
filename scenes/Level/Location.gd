@@ -39,6 +39,39 @@ func generate_grid(width, height):
 			row.append(true)
 		_grid.append(row)
 
+	var holes = []
+
+	var N = 5
+	while holes.size() < N:
+		var w = randi_range(width / 4, width / 2)
+		var h = randi_range(height / 4, height / 2)
+
+		var x = randi_range(-w, width - 1)
+		var y = randi_range(-h, height - 1)
+
+		var new_hole = Rect2i(x, y, w, h)
+
+		var found = false
+		for hole: Rect2i in holes:
+			if hole.intersects(new_hole.grow(2)):
+				found = true
+
+		if not found:
+			holes.append(new_hole)
+
+		#_grid[y][x] = false
+
+	for hole: Rect2i in holes:
+		var x1 = max(0, hole.position.x)
+		var y1 = max(0, hole.position.y)
+
+		var x2 = min(width, hole.position.x + hole.size.x)
+		var y2 = min(height, hole.position.y + hole.size.y)
+
+		for i in range(y1, y2):
+			for j in range(x1, x2):
+				_grid[i][j] = false
+
 
 func valid_cell(pos: Vector2i):
 	var n = _grid.size()
@@ -67,6 +100,9 @@ func build():
 			#var new_element: Label = label.duplicate()
 			#new_element.text = _pipes[i][j]
 			var code = _pipes[i][j]
+
+			if len(code) == 0:
+				continue
 
 			var new_element: Sprite2D = pipes_dict[code].duplicate()
 			new_element.global_position = pos
