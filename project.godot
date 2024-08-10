@@ -16,6 +16,10 @@ run/main_scene="res://scenes/Level/level.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/mode=2
+
 [input]
 
 RightButton={
