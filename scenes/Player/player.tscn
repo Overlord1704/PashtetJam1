@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cxs4qmnvhaqs2"]
 
 [ext_resource type="Script" path="res://scenes/Player/Player.gd" id="1_1pdg5"]
-[ext_resource type="Texture2D" uid="uid://rbf5vfeos77n" path="res://icon.svg" id="2_y3aeg"]
+[ext_resource type="Texture2D" uid="uid://cfuga4jo8atii" path="res://assets/Robot/robot_round_b.png" id="2_kttuv"]
 [ext_resource type="PackedScene" uid="uid://yy5ob4wtn7fe" path="res://scenes/Player/VelocityComponent/velocity_component.tscn" id="3_rg40q"]
 [ext_resource type="PackedScene" uid="uid://yur5r2715hyo" path="res://scenes/Player/ControllerComponent/controller_component.tscn" id="4_c3ftc"]
 [ext_resource type="PackedScene" uid="uid://bgw4symbyd22u" path="res://scenes/TakeAndPlaceComponent/take_and_place_component.tscn" id="5_gy078"]
@@ -16,7 +16,11 @@ script = ExtResource("1_1pdg5")
 VelocityComponent = NodePath("VelocityComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_y3aeg")
+self_modulate = Color(0, 0, 1, 1)
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(6.5, 6.5)
+texture = ExtResource("2_kttuv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_s8obx")

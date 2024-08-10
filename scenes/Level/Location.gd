@@ -61,6 +61,9 @@ func generate_grid(width, height):
 
 		#_grid[y][x] = false
 
+	print(holes)
+
+	var counter = 0
 	for hole: Rect2i in holes:
 		var x1 = max(0, hole.position.x)
 		var y1 = max(0, hole.position.y)
@@ -71,6 +74,9 @@ func generate_grid(width, height):
 		for i in range(y1, y2):
 			for j in range(x1, x2):
 				_grid[i][j] = false
+				counter += 1
+
+	print("Total:", counter, ' ', width * height)
 
 
 func valid_cell(pos: Vector2i):
@@ -119,17 +125,19 @@ func generate_pipes():
 	var n = _grid.size()
 	var m = _grid[0].size()
 
-	# начальная клетка
-	var pos0 = Vector2i(randi_range(0, m - 1), randi_range(0, n - 1))
-
-	_visited = []
-
 	# инициализация алгоритма
+	_visited = []
 	for i in range(n):
 		var row = []
 		for j in range(m):
 			row.append(false)
 		_visited.append(row)
+
+
+	# начальная клетка
+	var pos0 = Vector2i(randi_range(0, m - 1), randi_range(0, n - 1))
+	while not valid_cell(pos0):
+		pos0 = Vector2i(randi_range(0, m - 1), randi_range(0, n - 1))
 
 
 	var stack = []

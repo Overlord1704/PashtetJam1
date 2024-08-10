@@ -9,7 +9,7 @@ func _ready():
 		player = get_parent()
 	else:
 		print("Parent is not CharacterBody2D")
-	
+
 func _on_area_2d_area_entered(area):
 	### Дай трубам имя класса _TakeObject, а месту установки _PlaceObject ###
 	pass
