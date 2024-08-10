@@ -117,3 +117,5 @@ texture = SubResource("AtlasTexture_iyg8t")
 visible = false
 texture_filter = 1
 texture = SubResource("AtlasTexture_r3tus")
+
+[node name="Pipes" type="Node2D" parent="."]

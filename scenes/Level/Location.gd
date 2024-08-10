@@ -4,14 +4,19 @@ extends Node2D
 var _grid = []
 var _visited = []
 var _pipes = []
+var _broken = []
+var _broken_codes = []
 
 var DIRS = [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]
 var S_DIRS = 'lrud'
 
 var TILE = 32
 
+var PipeScene = preload("res://scenes/Level/pipe.tscn")
+var PlaceScene = preload("res://scenes/Level/place.tscn")
 
 @onready var label = $Elements/Label
+@onready var pipes = $Pipes
 
 @onready var pipes_dict = {
 	'l': $Elements/PipeL, 'r': $Elements/PipeR, 'u': $Elements/PipeU, 'd': $Elements/PipeD,
@@ -22,9 +27,13 @@ var TILE = 32
 }
 
 
+func get_broken():
+	return _broken
+
+
 func _ready():
 
-	generate_grid(20, 20)
+	generate_grid(12, 12)
 	generate_pipes()
 
 	build()
@@ -99,6 +108,8 @@ func build():
 	var n = _grid.size()
 	var m = _grid[0].size()
 
+	var broken_scenes = []
+
 	for i in range(n):
 		for j in range(m):
 			var pos = Vector2(j * TILE, i * TILE) + Vector2(TILE / 2, TILE / 2)
@@ -111,13 +122,38 @@ func build():
 				continue
 
 			var new_element: Sprite2D = pipes_dict[code].duplicate()
-			new_element.global_position = pos
+
 			new_element.scale = Vector2(2, 2)
-			add_child(new_element)
-			new_element.show()
+
+			if Vector2i(j, i) in _broken:
+				# сцена плейса трубы
+				var place_scene = PlaceScene.instantiate()
+				place_scene.add_child(new_element)
+				add_child(place_scene)
+				place_scene.global_position = pos
+
+				# сцена элемента трубы
+				var pipe_element = new_element.duplicate()
+				pipe_element.position = Vector2.ZERO
+				var pipe_scene = PipeScene.instantiate()
+				pipe_scene.add_child(pipe_element)
+				add_child(pipe_scene)
+				pipe_element.show()
+
+				var w = TILE * (m + 0.5)
+				var h = TILE * (n + 0.5)
+				var random_pos = Vector2(randf() * w * 0.5, randf() * h)
+				pipe_scene.global_position = Vector2(w, 0) + random_pos
+				pipe_scene.rotation = randf() * PI * 2.0
+			else:
+				new_element.global_position = pos
+				pipes.add_child(new_element)
+				new_element.show()
 
 
-func generate_pipes():
+
+
+func generate_pipes(num_broken: int = 8):
 	#
 	# создание лабиринта из труб
 	#
@@ -230,3 +266,17 @@ func generate_pipes():
 				s_code += S_DIRS[l]
 
 		_pipes[pos.y][pos.x] = s_code
+
+	# взять num_broken случайных элементов
+	var broken = []
+	while broken.size() < num_broken:
+		var num = randi_range(0, results.size() - 1)
+		if num in broken:
+			continue
+		broken.append(num)
+
+	_broken = []
+	_broken_codes = []
+	for num in broken:
+		_broken.append(results[num][0])
+		_broken_codes.append(neighbors[num])
