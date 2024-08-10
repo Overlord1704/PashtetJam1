@@ -23,7 +23,7 @@ func _physics_process(delta):
 		Acceleration()
 	elif is_friction:
 		Friction()
-	print(Velocity)
+	#print(Velocity)
 
 func Acceleration():
 	BORDER = 250
