@@ -12,6 +12,8 @@ var S_DIRS = 'lrud'
 
 var TILE = 32
 
+var PipeScene = preload("res://scenes/Level/pipe.tscn")
+var PlaceScene = preload("res://scenes/Level/place.tscn")
 
 @onready var label = $Elements/Label
 @onready var pipes = $Pipes
@@ -123,18 +125,30 @@ func build():
 
 			new_element.scale = Vector2(2, 2)
 
-			if Vector2i(j, i) not in _broken:
-				new_element.global_position = pos
-				pipes.add_child(new_element)
-			else:
+			if Vector2i(j, i) in _broken:
+				# сцена плейса трубы
+				var place_scene = PlaceScene.instantiate()
+				place_scene.add_child(new_element)
+				add_child(place_scene)
+				place_scene.global_position = pos
+
+				# сцена элемента трубы
+				var pipe_element = new_element.duplicate()
+				pipe_element.position = Vector2.ZERO
+				var pipe_scene = PipeScene.instantiate()
+				pipe_scene.add_child(pipe_element)
+				add_child(pipe_scene)
+				pipe_element.show()
+
 				var w = TILE * (m + 0.5)
 				var h = TILE * (n + 0.5)
 				var random_pos = Vector2(randf() * w * 0.5, randf() * h)
-				new_element.global_position = Vector2(w, 0) + random_pos
-				new_element.rotation = randf() * PI * 2.0
-				add_child(new_element)
-
-			new_element.show()
+				pipe_scene.global_position = Vector2(w, 0) + random_pos
+				pipe_scene.rotation = randf() * PI * 2.0
+			else:
+				new_element.global_position = pos
+				pipes.add_child(new_element)
+				new_element.show()
 
 
 
