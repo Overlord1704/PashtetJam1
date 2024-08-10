@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=3 uid="uid://cox84fkrikcav"]
+
+[ext_resource type="Script" path="res://scenes/Level/Location.gd" id="1_1jny3"]
+[ext_resource type="Texture2D" uid="uid://0501cdvw7mqv" path="res://assets/Pipes/pipes_small.png" id="2_0rvfh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6pmn"]
+atlas = ExtResource("2_0rvfh")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8p5k"]
+atlas = ExtResource("2_0rvfh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeg76"]
+atlas = ExtResource("2_0rvfh")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyg8t"]
+atlas = ExtResource("2_0rvfh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3tus"]
+atlas = ExtResource("2_0rvfh")
+region = Rect2(0, 16, 16, 16)
+
+[node name="Location" type="Node2D"]
+script = ExtResource("1_1jny3")
+
+[node name="Elements" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Elements"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="PipeL" type="Sprite2D" parent="Elements"]
+visible = false
+texture_filter = 1
+texture = SubResource("AtlasTexture_j6pmn")
+
+[node name="PipeR" type="Sprite2D" parent="Elements"]
+visible = false
+texture_filter = 1
+rotation = 3.14159
+texture = SubResource("AtlasTexture_j6pmn")
+
+[node name="PipeU" type="Sprite2D" parent="Elements"]
+visible = false
+texture_filter = 1
+rotation = 1.5708
+texture = SubResource("AtlasTexture_j6pmn")
+
+[node name="PipeD" type="Sprite2D" parent="Elements"]
+visible = false
+texture_filter = 1
+rotation = 4.71239
+texture = SubResource("AtlasTexture_j6pmn")
+
+[node name="PipeLR" type="Sprite2D" parent="Elements"]
+visible = false
+texture_filter = 1
+texture = SubResource("AtlasTexture_v8p5k")
+
+[node name="PipeUD" type="Sprite2D" parent="Elements"]
+visible = false
+texture_filter = 1
+rotation = 1.5708
+texture = SubResource("AtlasTexture_v8p5k")
+
+[node name="PipeLD" type="Sprite2D" parent="Elements"]
+visible = false
+texture_filter = 1
+texture = SubResource("AtlasTexture_jeg76")
+
+[node name="PipeLU" type="Sprite2D" parent="Elements"]
+visible = false
+texture_filter = 1
+rotation = 1.5708
+texture = SubResource("AtlasTexture_jeg76")
+
+[node name="PipeRU" type="Sprite2D" parent="Elements"]
+visible = false
+texture_filter = 1
+rotation = 3.14159
+texture = SubResource("AtlasTexture_jeg76")
+
+[node name="PipeRD" type="Sprite2D" parent="Elements"]
+visible = false
+texture_filter = 1
+rotation = 4.71239
+texture = SubResource("AtlasTexture_jeg76")
+
+[node name="PipeLRD" type="Sprite2D" parent="Elements"]
+visible = false
+texture_filter = 1
+texture = SubResource("AtlasTexture_iyg8t")
+
+[node name="PipeLUD" type="Sprite2D" parent="Elements"]
+visible = false
+texture_filter = 1
+rotation = 1.5708
+texture = SubResource("AtlasTexture_iyg8t")
+
+[node name="PipeLRU" type="Sprite2D" parent="Elements"]
+visible = false
+texture_filter = 1
+rotation = 3.14159
+texture = SubResource("AtlasTexture_iyg8t")
+
+[node name="PipeRUD" type="Sprite2D" parent="Elements"]
+visible = false
+texture_filter = 1
+rotation = 4.71239
+texture = SubResource("AtlasTexture_iyg8t")
+
+[node name="PipeLRUD" type="Sprite2D" parent="Elements"]
+visible = false
+texture_filter = 1
+texture = SubResource("AtlasTexture_r3tus")
