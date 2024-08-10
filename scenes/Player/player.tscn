@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxs4qmnvhaqs2"]
+[gd_scene load_steps=10 format=3 uid="uid://cxs4qmnvhaqs2"]
 
 [ext_resource type="Script" path="res://scenes/Player/Player.gd" id="1_1pdg5"]
 [ext_resource type="Texture2D" uid="uid://cfuga4jo8atii" path="res://assets/Robot/robot_round_b.png" id="2_kttuv"]
+[ext_resource type="PackedScene" uid="uid://iqtcamt16khs" path="res://scenes/Player/GameTimer/game_timer.tscn" id="2_ldj8l"]
 [ext_resource type="PackedScene" uid="uid://yy5ob4wtn7fe" path="res://scenes/Player/VelocityComponent/velocity_component.tscn" id="3_rg40q"]
 [ext_resource type="PackedScene" uid="uid://yur5r2715hyo" path="res://scenes/Player/ControllerComponent/controller_component.tscn" id="4_c3ftc"]
 [ext_resource type="PackedScene" uid="uid://bgw4symbyd22u" path="res://scenes/TakeAndPlaceComponent/take_and_place_component.tscn" id="5_gy078"]
@@ -10,20 +11,25 @@
 size = Vector2(128, 128)
 
 [sub_resource type="Gradient" id="Gradient_yr2km"]
-offsets = PackedFloat32Array(0.246753, 0.967532)
+offsets = PackedFloat32Array(0, 0.967532)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sofmp"]
 gradient = SubResource("Gradient_yr2km")
 fill = 1
-fill_from = Vector2(0.486239, 0.536697)
-fill_to = Vector2(0.986239, 0.775229)
+fill_from = Vector2(0.619266, 0.527523)
+fill_to = Vector2(0, 0.527523)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("VelocityComponent")]
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_1pdg5")
 VelocityComponent = NodePath("VelocityComponent")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameTimer" parent="CanvasLayer" instance=ExtResource("2_ldj8l")]
+position = Vector2(384, 48)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0.160784, 0.729412, 1)
@@ -46,6 +52,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(96, 0)
-scale = Vector2(3.25, 1.5)
+position = Vector2(248, 0)
+scale = Vector2(-7.04207, 2.55635)
 texture = SubResource("GradientTexture2D_sofmp")
