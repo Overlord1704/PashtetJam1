@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx5dt0vuo1ifd"]
+
+[ext_resource type="Script" path="res://scenes/StartMenu/start_menu.gd" id="1_rathy"]
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource("1_rathy")
+
+[node name="Start" type="Button" parent="."]
+offset_left = 416.0
+offset_top = 128.0
+offset_right = 744.0
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 45
+text = "Начать"
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 416.0
+offset_top = 264.0
+offset_right = 744.0
+offset_bottom = 336.0
+theme_override_font_sizes/font_size = 45
+text = "Выход"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 288.0
+offset_top = 376.0
+offset_right = 863.0
+offset_bottom = 529.0
+text = "Ты - маленький робот-ремонтник. Твоя задача -починить 
+трубопровод на дне океана. Имей в виду, что долго на дне
+находиться не получится, соединие с роботом 
+нестабильно.
+УСКОРЕНИЕ - ПКМ
+ПОДБОР\\УСТАНОВКА ДЕТАЛЕЙ - автоматически (проплыть сквозь них)"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
