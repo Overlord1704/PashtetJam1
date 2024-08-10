@@ -9,14 +9,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8obx"]
 size = Vector2(128, 128)
 
-[sub_resource type="Gradient" id="Gradient_q78ui"]
+[sub_resource type="Gradient" id="Gradient_yr2km"]
+offsets = PackedFloat32Array(0.246753, 0.967532)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_m2bgk"]
-gradient = SubResource("Gradient_q78ui")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sofmp"]
+gradient = SubResource("Gradient_yr2km")
 fill = 1
-fill_from = Vector2(0.5, 0.463)
-fill_to = Vector2(0.857798, 0.12844)
+fill_from = Vector2(0.486239, 0.536697)
+fill_to = Vector2(0.986239, 0.775229)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("VelocityComponent")]
 collision_mask = 2
@@ -45,6 +46,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(2.04, 2.11142)
-energy = 4.3
-texture = SubResource("GradientTexture2D_m2bgk")
+position = Vector2(96, 0)
+scale = Vector2(3.25, 1.5)
+texture = SubResource("GradientTexture2D_sofmp")

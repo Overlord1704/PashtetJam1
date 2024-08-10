@@ -10,5 +10,6 @@
 [node name="Player" parent="." instance=ExtResource("1_0m6js")]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+scale = Vector2(4.05881, 1.8055)
 energy = 0.42
 blend_mode = 1
