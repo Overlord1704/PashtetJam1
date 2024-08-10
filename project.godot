@@ -12,13 +12,14 @@ config_version=5
 
 config/name="PashtetJam1"
 config/tags=PackedStringArray("2d", "jam")
-run/main_scene="res://scenes/Level/level.tscn"
+run/main_scene="res://scenes/StartMenu/start_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/mode=2
+window/layer_4=""
+window/layer_3="ПоднятьТрубы"
 
 [input]
 
