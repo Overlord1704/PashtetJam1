@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxs4qmnvhaqs2"]
+[gd_scene load_steps=9 format=3 uid="uid://cxs4qmnvhaqs2"]
 
 [ext_resource type="Script" path="res://scenes/Player/Player.gd" id="1_1pdg5"]
 [ext_resource type="Texture2D" uid="uid://cfuga4jo8atii" path="res://assets/Robot/robot_round_b.png" id="2_kttuv"]
@@ -8,6 +8,15 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8obx"]
 size = Vector2(128, 128)
+
+[sub_resource type="Gradient" id="Gradient_q78ui"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m2bgk"]
+gradient = SubResource("Gradient_q78ui")
+fill = 1
+fill_from = Vector2(0.5, 0.463)
+fill_to = Vector2(0.857798, 0.12844)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("VelocityComponent")]
 collision_mask = 2
@@ -34,3 +43,8 @@ VelocityComponent = NodePath("../VelocityComponent")
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(2.04, 2.11142)
+energy = 4.3
+texture = SubResource("GradientTexture2D_m2bgk")
