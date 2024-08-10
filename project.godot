@@ -24,6 +24,13 @@ RightButton={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Игрок"
+2d_physics/layer_2="ЗонаИгрока"
+2d_physics/layer_3="ПоднятьТрубу"
+2d_physics/layer_4="МестоУстановкиТрубы"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
