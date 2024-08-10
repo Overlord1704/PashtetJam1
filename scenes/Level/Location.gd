@@ -142,8 +142,13 @@ func build():
 
 				var w = TILE * (m + 0.5)
 				var h = TILE * (n + 0.5)
-				var random_pos = Vector2(randf() * w * 0.5, randf() * h)
-				pipe_scene.global_position = Vector2(w, 0) + random_pos
+
+				#var random_pos = Vector2(randf() * w * 0.5, randf() * h)
+				#pipe_scene.position = Vector2(w, 0) + random_pos
+				var random_pos = spawn_pipe(w, h)
+				pipe_scene.position = random_pos
+				print(random_pos)
+
 				pipe_scene.rotation = randf() * PI * 2.0
 			else:
 				new_element.global_position = pos
@@ -151,6 +156,13 @@ func build():
 				new_element.show()
 
 
+func spawn_pipe(width, height):
+	# random position вне квадрата с трубами
+	var offset = Vector2(-width * 0.5, -height * 0.5)
+	var rp = Vector2(randf() * width * 2, randf() * height * 2) + offset
+	while rp.x >= 0 and rp.x <= width and rp.y >= 0 and rp.y <= height:
+		rp = Vector2(randf() * width * 2, randf() * height * 2) + offset
+	return rp
 
 
 func generate_pipes(num_broken: int = 8):
