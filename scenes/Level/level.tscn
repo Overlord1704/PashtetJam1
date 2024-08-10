@@ -1,7 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://22rugtscq12p"]
 
 [ext_resource type="PackedScene" uid="uid://cxs4qmnvhaqs2" path="res://scenes/Player/player.tscn" id="1_0m6js"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://b4sjxd2j5o6dh" path="res://scenes/Level/location.tscn" id="2_jx5qx"]
+=======
+[ext_resource type="PackedScene" path="res://scenes/Level/location.tscn" id="2_jx5qx"]
+>>>>>>> Vlad-branch
 
 [node name="Level" type="Node2D"]
 
