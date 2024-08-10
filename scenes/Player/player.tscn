@@ -16,10 +16,9 @@ script = ExtResource("1_1pdg5")
 VelocityComponent = NodePath("VelocityComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0, 0, 1, 1)
-texture_filter = 1
-rotation = 1.5708
-scale = Vector2(6.5, 6.5)
+modulate = Color(0, 0.160784, 0.729412, 1)
+rotation = 1.55567
+scale = Vector2(9.67143, 9.67143)
 texture = ExtResource("2_kttuv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -31,3 +30,7 @@ shape = SubResource("RectangleShape2D_s8obx")
 VelocityComponent = NodePath("../VelocityComponent")
 
 [node name="TakeAndPlaceComponent" parent="." instance=ExtResource("5_gy078")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0

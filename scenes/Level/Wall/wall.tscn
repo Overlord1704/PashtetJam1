@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://oh5sg8t8t8ww"]
+
+[ext_resource type="Texture2D" uid="uid://ci7pcbsrrnd6b" path="res://assets/Texture/TX Tileset Ground.png" id="1_cc6ky"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni0ry"]
+size = Vector2(128, 128)
+
+[node name="Wall" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ni0ry")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.327306, 0.331165, 0.221108, 1)
+texture_filter = 1
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(1.34737, 1.91045)
+texture = ExtResource("1_cc6ky")
+region_enabled = true
+region_rect = Rect2(1, 29, 95, 67)
