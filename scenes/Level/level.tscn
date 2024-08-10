@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://1t1cslvk6maj"]
+[gd_scene load_steps=4 format=3 uid="uid://1t1cslvk6maj"]
 
 [ext_resource type="PackedScene" uid="uid://cxs4qmnvhaqs2" path="res://scenes/Player/player.tscn" id="1_0m6js"]
-[ext_resource type="PackedScene" uid="uid://cox84fkrikcav" path="res://scenes/Level/location.tscn" id="2_phj4u"]
+[ext_resource type="Script" path="res://scenes/Level/level.gd" id="1_bgy22"]
+[ext_resource type="PackedScene" uid="uid://ch1ssmfxjtmxq" path="res://scenes/Level/location.tscn" id="2_phj4u"]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_bgy22")
+player = NodePath("Player")
 
 [node name="Location" parent="." instance=ExtResource("2_phj4u")]
 
 [node name="Player" parent="." instance=ExtResource("1_0m6js")]
+scale = Vector2(0.505453, 0.505453)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 scale = Vector2(4.05881, 1.8055)
