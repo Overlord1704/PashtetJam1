@@ -8,7 +8,6 @@ signal quit_game
 
 var MousePosition : Vector2
 
-
 func _ready():
 	$CanvasLayer/GameTimer.game_over.connect(GameOver)
 	
