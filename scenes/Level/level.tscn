@@ -11,6 +11,7 @@ player = NodePath("Player")
 [node name="Location" parent="." instance=ExtResource("2_phj4u")]
 
 [node name="Player" parent="." instance=ExtResource("1_0m6js")]
+scale = Vector2(0.505453, 0.505453)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 scale = Vector2(4.05881, 1.8055)

@@ -12,8 +12,7 @@ func _ready():
 
 func _on_area_2d_area_entered(area):
 	### Дай трубам имя класса _TakeObject, а месту установки _PlaceObject ###
-	pass
-	#if area is _TakeObject:
-		#player.take_object.emit()
-	#elif area is _PlaceObject:
-		#player.place_object.emit()
+	if area is _TakeObject:
+		player.take_object.emit()
+	elif area is _PlaceObject:
+		player.place_object.emit()

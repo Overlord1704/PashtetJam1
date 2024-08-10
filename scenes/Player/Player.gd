@@ -8,9 +8,11 @@ signal quit_game
 
 var MousePosition : Vector2
 
+
 func _ready():
 	$CanvasLayer/GameTimer.game_over.connect(GameOver)
 	
+
 func _input(event):
 	### Отвечает за поворот персонажа ###
 	MousePosition = get_global_mouse_position()

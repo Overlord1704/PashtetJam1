@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://yy5ob4wtn7fe" path="res://scenes/Player/VelocityComponent/velocity_component.tscn" id="3_rg40q"]
 [ext_resource type="PackedScene" uid="uid://yur5r2715hyo" path="res://scenes/Player/ControllerComponent/controller_component.tscn" id="4_c3ftc"]
 [ext_resource type="PackedScene" uid="uid://bgw4symbyd22u" path="res://scenes/TakeAndPlaceComponent/take_and_place_component.tscn" id="5_gy078"]
+[ext_resource type="PackedScene" uid="uid://dltfrin3pdaa" path="res://scenes/Level/GameTimer/game_timer.tscn" id="6_nxekh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8obx"]
 size = Vector2(128, 128)
@@ -27,9 +28,16 @@ script = ExtResource("1_1pdg5")
 VelocityComponent = NodePath("VelocityComponent")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+<<<<<<< HEAD
 
 [node name="GameTimer" parent="CanvasLayer" instance=ExtResource("2_ldj8l")]
 position = Vector2(384, 48)
+=======
+layer = 2
+
+[node name="GameTimer" parent="CanvasLayer" instance=ExtResource("6_nxekh")]
+position = Vector2(392, 56)
+>>>>>>> main
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0.160784, 0.729412, 1)

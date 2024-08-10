@@ -24,6 +24,7 @@ atlas = ExtResource("2_0rvfh")
 region = Rect2(0, 16, 16, 16)
 
 [node name="Location" type="Node2D"]
+scale = Vector2(8, 8)
 script = ExtResource("1_1jny3")
 
 [node name="Elements" type="Node" parent="."]
@@ -117,3 +118,5 @@ texture = SubResource("AtlasTexture_iyg8t")
 visible = false
 texture_filter = 1
 texture = SubResource("AtlasTexture_r3tus")
+
+[node name="Pipes" type="Node2D" parent="."]
