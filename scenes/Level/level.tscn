@@ -7,4 +7,4 @@
 
 [node name="Location" parent="." instance=ExtResource("2_phj4u")]
 
-[node name="Player" parent="Location" instance=ExtResource("1_0m6js")]
+[node name="Player" parent="." instance=ExtResource("1_0m6js")]
