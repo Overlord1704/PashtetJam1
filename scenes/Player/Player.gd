@@ -7,6 +7,8 @@ signal quit_game
 
 @export var VelocityComponent : _VelocityComponent
 
+@onready var marker = $Marker2D
+
 var MousePosition : Vector2
 
 func _ready():

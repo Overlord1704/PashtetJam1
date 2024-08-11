@@ -51,3 +51,6 @@ texture = SubResource("GradientTexture2D_b5g1r")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(80, 0)

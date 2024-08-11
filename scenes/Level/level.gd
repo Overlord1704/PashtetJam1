@@ -15,9 +15,10 @@ func _ready():
 
 func _physics_process(delta):
 	if is_taked:
-		body_pipe.position = player.position
+		body_pipe.global_position = player.marker.global_position
+		#lerp(body_pipe.global_position, player.marker.global_position, delta)
 	if is_placed and body_pipe != null:
-		body_pipe.position = place.position
+		body_pipe.global_position = place.global_position
 		body_pipe.active = false
 
 func Take(body : _TakeObject):

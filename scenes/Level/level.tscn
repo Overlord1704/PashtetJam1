@@ -18,6 +18,8 @@ tile_set = ExtResource("1_7oxu2")
 format = 2
 layer_0/name = "Sand"
 script = ExtResource("2_urldr")
+zone = Rect2i(-32, -32, 96, 96)
+noise_scale = 12.0
 
 [node name="Location" parent="." instance=ExtResource("2_phj4u")]
 scale = Vector2(4, 4)
