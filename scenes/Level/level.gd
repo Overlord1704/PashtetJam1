@@ -18,13 +18,13 @@ func _physics_process(delta):
 		body_pipe.global_position = player.marker.global_position
 		#lerp(body_pipe.global_position, player.marker.global_position, delta)
 	if is_placed and body_pipe != null:
+		$PlacePipe.play(0)
 		body_pipe.global_position = place.global_position
 		body_pipe.active = false
-
 func Take(body : _TakeObject):
 	if is_taked:
 		return
-
+	$TakePipe.play(0)
 	is_taked = true
 	body_pipe = body
 	is_placed = false

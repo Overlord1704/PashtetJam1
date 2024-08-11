@@ -6,6 +6,7 @@ signal place_object
 signal quit_game
 
 @export var VelocityComponent : _VelocityComponent
+@export var SoundMovement : AudioStreamPlayer2D
 
 @onready var marker = $Marker2D
 
@@ -13,7 +14,7 @@ var MousePosition : Vector2
 
 func _ready():
 	$CanvasLayer/GameTimer.game_over.connect(GameOver)
-	$AudioStreamPlayer.play(0)
+	SoundMovement.play(0)
 
 func _input(event):
 	### Отвечает за поворот персонажа ###
