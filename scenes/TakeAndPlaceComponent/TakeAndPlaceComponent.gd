@@ -2,6 +2,7 @@ extends Node2D
 class_name _TakeAndPlaceComponent
 
 var player : CharacterBody2D
+var Pipe : _TakeObject
 
 func _ready():
 	# Проверка на то, является ли компонент дочерним узлом игрока

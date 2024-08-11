@@ -25,6 +25,16 @@ window/layer_3="ПоднятьТрубы"
 
 movie_writer/movie_file="/home/cosminog/Public/Cloud/DevJam1/Media/gameplay_jam.avi"
 
+[importer_defaults]
+
+oggvorbisstr={
+"bar_beats": 4,
+"beat_count": 0,
+"bpm": 0,
+"loop": false,
+"loop_offset": 0
+}
+
 [input]
 
 RightButton={
