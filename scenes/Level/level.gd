@@ -19,6 +19,7 @@ func _ready():
 	player.take_object.connect(Take)
 	player.place_object.connect(Place)
 	player.quit_game.connect(QuitGame)
+	Fragments = location.get_num_fragments()
 
 func _physics_process(delta):
 	if is_taked:
@@ -28,10 +29,9 @@ func _physics_process(delta):
 	if is_placed and body_pipe != null:
 		body_pipe.global_position = place.global_position
 
-
 	if current_fragments >= Fragments:# Победное меню
 		get_tree().change_scene_to_file("res://scenes/WinnerMenu/winner.tscn")
-
+	$CanvasLayer/CurrFragments.text = "Восстановлено фрагментов:"+str(current_fragments)+"/"+str(Fragments)
 func Take(body : _TakeObject):
 	if is_taked:
 		return

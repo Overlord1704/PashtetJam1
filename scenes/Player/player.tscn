@@ -55,6 +55,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("2_kttuv")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("3_rg40q")]
+SPEED = 150
 
 [node name="ControllerComponent" parent="." node_paths=PackedStringArray("VelocityComponent") instance=ExtResource("4_c3ftc")]
 VelocityComponent = NodePath("../VelocityComponent")
