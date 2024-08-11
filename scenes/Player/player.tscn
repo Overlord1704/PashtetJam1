@@ -43,7 +43,7 @@ SoundMovement = NodePath("Movement")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameTimer" parent="CanvasLayer" instance=ExtResource("2_cpba7")]
-position = Vector2(440, 72)
+position = Vector2(789, 147)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_o472u")
@@ -79,7 +79,7 @@ scale = Vector2(4.5, 4)
 texture = SubResource("GradientTexture2D_1xof5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.1, 0.1)
 position_smoothing_enabled = true
 
 [node name="Movement" type="AudioStreamPlayer2D" parent="."]
