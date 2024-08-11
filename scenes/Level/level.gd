@@ -19,7 +19,7 @@ func _physics_process(delta):
 	if is_placed:
 		body_pipe.position = place.position
 		body_pipe.active = false
-		
+	
 func Take(body : _TakeObject):
 	is_taked = true
 	body_pipe = body
