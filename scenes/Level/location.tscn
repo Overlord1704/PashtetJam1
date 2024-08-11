@@ -26,6 +26,7 @@ region = Rect2(0, 16, 16, 16)
 [node name="Location" type="Node2D"]
 scale = Vector2(8, 8)
 script = ExtResource("1_1jny3")
+num_holes = 8
 
 [node name="Elements" type="Node" parent="."]
 
