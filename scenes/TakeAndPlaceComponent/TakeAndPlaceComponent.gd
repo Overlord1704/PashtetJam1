@@ -14,7 +14,7 @@ func _ready():
 func _on_area_2d_body_entered(body):
 	if body is _TakeObject:
 		player.take_object.emit(body)
-
+		
 func _on_area_2d_area_entered(area):
 	if area is _PlaceObject:
 		player.place_object.emit(area)
