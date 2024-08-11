@@ -62,24 +62,24 @@ VelocityComponent = NodePath("../VelocityComponent")
 [node name="TakeAndPlaceComponent" parent="." instance=ExtResource("5_gy078")]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(336, 96)
-scale = Vector2(9.5, 3)
-energy = 5.0
+position = Vector2(528, 96)
+scale = Vector2(15.5, 3)
+energy = 3.0
 texture = SubResource("GradientTexture2D_m2jjd")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(334, -96)
-scale = Vector2(9.5625, 3)
-energy = 5.0
+position = Vector2(526, -96)
+scale = Vector2(15.5625, 3)
+energy = 3.0
 texture = SubResource("GradientTexture2D_b5g1r")
 
 [node name="PointLight2D3" type="PointLight2D" parent="."]
 position = Vector2(8, 0)
 scale = Vector2(4.5, 4)
-energy = 5.0
 texture = SubResource("GradientTexture2D_1xof5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 
 [node name="Movement" type="AudioStreamPlayer2D" parent="."]
