@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://rxqvvuu4kf8i"]
+
+[ext_resource type="PackedScene" uid="uid://cxs4qmnvhaqs2" path="res://scenes/Player/player.tscn" id="1_0m6js"]
+[ext_resource type="Script" path="res://scenes/Level/level.gd" id="1_bgy22"]
+[ext_resource type="PackedScene" uid="uid://ch1ssmfxjtmxq" path="res://scenes/Level/location.tscn" id="2_phj4u"]
+[ext_resource type="PackedScene" uid="uid://cllq00tvqjbsi" path="res://scenes/Test/area_2d.tscn" id="4_kd7r2"]
+[ext_resource type="PackedScene" uid="uid://km2q05sov8dk" path="res://scenes/Test/test_place.tscn" id="5_8ta62"]
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_bgy22")
+player = NodePath("CharacterBody2D")
+
+[node name="Location" parent="." instance=ExtResource("2_phj4u")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_0m6js")]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.57
+blend_mode = 1
+
+[node name="Test" parent="." instance=ExtResource("4_kd7r2")]
+position = Vector2(-424, 128)
+
+[node name="TestPlace" parent="." instance=ExtResource("5_8ta62")]
+position = Vector2(-512, -272)
