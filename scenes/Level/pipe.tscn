@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cllq00tvqjbsi"]
+[gd_scene load_steps=5 format=3 uid="uid://cllq00tvqjbsi"]
 
 [ext_resource type="Script" path="res://scenes/Level/Pipe.gd" id="1_tipy8"]
+[ext_resource type="Texture2D" uid="uid://cxocckjohwkpg" path="res://scenes/Level/LightObject.tres" id="2_bt8yo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p300x"]
 radius = 24.0
@@ -21,3 +22,8 @@ shape = SubResource("CircleShape2D_p300x")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_uo0mm")
 debug_color = Color(0.94922, 0.217945, 0.158976, 0.42)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0, 0.865599, 0.866832, 1)
+energy = 3.0
+texture = ExtResource("2_bt8yo")
