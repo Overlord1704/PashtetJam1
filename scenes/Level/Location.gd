@@ -149,6 +149,8 @@ func build():
 	var n = _grid.size()
 	var m = _grid[0].size()
 
+	global_position = -Vector2(scale.x * m * TILE / 2, scale.y * n * TILE / 2)
+
 	# таблица спрайтов
 	_sprites = []
 	for i in range(n):
