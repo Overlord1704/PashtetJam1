@@ -1,32 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://cx5dt0vuo1ifd"]
+[gd_scene load_steps=3 format=3 uid="uid://cx5dt0vuo1ifd"]
 
 [ext_resource type="Script" path="res://scenes/StartMenu/start_menu.gd" id="1_rathy"]
+[ext_resource type="Texture2D" uid="uid://dm4je2txt7yn7" path="res://assets/Background/Black(1)(1)(1)(1).png" id="2_3yeh6"]
 
 [node name="StartMenu" type="Node2D"]
 script = ExtResource("1_rathy")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(954.433, 541.531)
+scale = Vector2(7.86643, 6.06103)
+texture = ExtResource("2_3yeh6")
+
 [node name="Start" type="Button" parent="."]
-offset_left = 416.0
-offset_top = 128.0
-offset_right = 744.0
-offset_bottom = 200.0
+offset_left = 800.0
+offset_top = 200.0
+offset_right = 1128.0
+offset_bottom = 272.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 45
 text = "Начать"
 
 [node name="Exit" type="Button" parent="."]
-offset_left = 416.0
-offset_top = 264.0
-offset_right = 744.0
-offset_bottom = 336.0
+offset_left = 800.0
+offset_top = 432.0
+offset_right = 1128.0
+offset_bottom = 504.0
 theme_override_font_sizes/font_size = 45
 text = "Выход"
 
 [node name="Label" type="Label" parent="."]
-offset_left = 288.0
-offset_top = 376.0
-offset_right = 863.0
-offset_bottom = 529.0
+offset_left = 736.0
+offset_top = 560.0
+offset_right = 1311.0
+offset_bottom = 713.0
 text = "Ты - маленький робот-ремонтник. Твоя задача -починить 
 трубопровод на дне океана. Имей в виду, что долго на дне
 находиться не получится, соединие с роботом 

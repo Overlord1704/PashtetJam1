@@ -19,11 +19,14 @@ size = Vector2(0.841282, 53.1572)
 [node name="Level" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_bgy22")
 player = NodePath("Player")
-Fragments = 8
+
+take_sound = ExtResource("8_b4fjl")
+place_sound = ExtResource("9_kwuh1")
+Fragments = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-18.5414, -12.5821)
-scale = Vector2(34.917, 38.8357)
+position = Vector2(479.982, 133.675)
+scale = Vector2(63.9639, 63.3521)
 texture = ExtResource("7_qayyb")
 
 [node name="SandMap" type="TileMap" parent="."]
@@ -56,16 +59,13 @@ blend_mode = 1
 
 [node name="Ambient" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_22r2e")
-volume_db = 10.0
+volume_db = 12.0
 autoplay = true
 
-[node name="TakePipe" type="AudioStreamPlayer2D" parent="."]
+[node name="Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_b4fjl")
-volume_db = 5.0
-
-[node name="PlacePipe" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_kwuh1")
-volume_db = 5.0
+volume_db = 10.0
+bus = &"Pipe"
 
 [node name="Borders" type="StaticBody2D" parent="."]
 collision_layer = 16
