@@ -19,6 +19,7 @@ size = Vector2(0.841282, 53.1572)
 [node name="Level" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_bgy22")
 player = NodePath("Player")
+
 take_sound = ExtResource("8_b4fjl")
 place_sound = ExtResource("9_kwuh1")
 Fragments = 10

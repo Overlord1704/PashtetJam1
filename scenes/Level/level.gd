@@ -28,10 +28,10 @@ func _physics_process(delta):
 		body_pipe.global_position = place.global_position
 		current_fragments += 1
 
-	
+
 	if current_fragments >= Fragments:# Победное меню
 		get_tree().change_scene_to_file("res://scenes/WinnerMenu/winner.tscn")
-		
+
 func Take(body : _TakeObject):
 	if is_taked:
 		return

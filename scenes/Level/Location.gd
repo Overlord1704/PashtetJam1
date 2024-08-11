@@ -8,6 +8,8 @@ extends Node2D
 @export var hole_max: int = 4
 @export var random_add: int = 32
 @export var random_sub: int = 8
+@export_category("Spawn")
+@export var border: int = 3800
 
 var _grid = []
 var _visited = []
@@ -205,6 +207,9 @@ func build():
 				#pipe_scene.position = Vector2(w, 0) + random_pos
 				var random_pos = spawn_pipe(w, h)
 				pipe_scene.position = random_pos
+				while abs(pipe_scene.global_position.x) > border or abs(pipe_scene.global_position.y) > border:
+					random_pos = spawn_pipe(w, h)
+					pipe_scene.position = random_pos
 				# print(random_pos)
 
 				pipe_scene.rotation = randf() * PI * 2.0
