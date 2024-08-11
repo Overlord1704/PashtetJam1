@@ -27,7 +27,6 @@ VelocityComponent = NodePath("VelocityComponent")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameTimer" parent="CanvasLayer" instance=ExtResource("2_cpba7")]
-position = Vector2(440, 72)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_o472u")
