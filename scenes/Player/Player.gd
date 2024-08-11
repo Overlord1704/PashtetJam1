@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name Player
+#class_name Player
 
 signal take_object
 signal place_object
