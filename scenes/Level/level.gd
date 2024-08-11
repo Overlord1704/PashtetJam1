@@ -26,7 +26,6 @@ func _physics_process(delta):
 		#lerp(body_pipe.global_position, player.marker.global_position, delta)
 	if is_placed and body_pipe != null:
 		body_pipe.global_position = place.global_position
-		current_fragments += 1
 
 
 	if current_fragments >= Fragments:# Победное меню
@@ -43,11 +42,13 @@ func Take(body : _TakeObject):
 
 func Place(zone_place : _PlaceObject):
 	if is_taked and zone_place.install_pipe(body_pipe):
+		current_fragments += 1
 		is_placed = true
 		place = zone_place
 		is_taked = false
 		TakeAndPlaceSound(place_sound)
 		body_pipe.queue_free()
+
 
 func TakeAndPlaceSound(sound : AudioStream):
 	$Sound.stream = sound

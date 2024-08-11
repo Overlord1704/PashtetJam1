@@ -19,6 +19,8 @@ var _broken_codes = []
 var _sprites = []
 var _sprites_broken = []
 
+var _total: int = 0
+
 var DIRS = [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]
 var S_DIRS = 'lrud'
 
@@ -53,9 +55,22 @@ func get_broken():
 
 
 func _ready():
+	print(width, ' x ', height)
+	generate_all()
+	print(get_num_fragments(), ' and ', get_num_total())
 
-	generate_grid()
-	generate_pipes()
+func generate_all():
+	var average = (width * height * 5 / 9 + random_add - random_sub)
+	var min_total = average / 2
+	var max_total = average * 3 / 2
+	_total = 0
+
+	var iterations = 0
+	while _total < min_total or _total > max_total:
+		iterations += 1
+		generate_grid()
+		_total = generate_pipes()
+	print("Iterations: ", iterations)
 
 	build()
 
@@ -366,12 +381,21 @@ func generate_pipes(num_broken: int = 8):
 		_broken.append(results[num][0])
 		_broken_codes.append(neighbors[num])
 
+	return results.size()
+
+
+func get_num_fragments():
+	return _sprites_broken.size()
+
+
+func get_num_total():
+	return _total
 
 func _process(delta):
 	var n = _grid.size()
 	var m = _grid[0].size()
 
-	#print(_sprites_broken.size())
+	print(_sprites_broken.size())
 
 	for _broken_sprite in _sprites_broken:
 		#print(_broken_sprite)
