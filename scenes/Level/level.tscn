@@ -16,9 +16,10 @@ size = Vector2(17.8227, 2.38953)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cue3r"]
 size = Vector2(0.841282, 53.1572)
 
-[node name="Level" type="Node2D" node_paths=PackedStringArray("player")]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "location")]
 script = ExtResource("1_bgy22")
 player = NodePath("Player")
+location = NodePath("Location")
 take_sound = ExtResource("8_b4fjl")
 place_sound = ExtResource("9_kwuh1")
 Fragments = 10
@@ -42,17 +43,18 @@ zone = Rect2i(-64, -64, 128, 128)
 noise_scale = 12.0
 
 [node name="Player" parent="." instance=ExtResource("1_0m6js")]
-position = Vector2(0.75, 0.75)
+position = Vector2(1, 1)
 collision_mask = 16
 
 [node name="Location" parent="." instance=ExtResource("2_phj4u")]
 scale = Vector2(4, 4)
 width = 40
-height = 15
-num_holes = 20
+height = 40
+num_holes = 15
+hole_min = 8
+hole_max = 10
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
 energy = 1.2
 blend_mode = 1
 
