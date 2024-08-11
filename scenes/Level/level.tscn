@@ -43,7 +43,7 @@ zone = Rect2i(-32, -32, 96, 96)
 noise_scale = 12.0
 
 [node name="Player" parent="." instance=ExtResource("1_0m6js")]
-position = Vector2(0.75, 0.75)
+position = Vector2(1, 1)
 collision_mask = 16
 
 [node name="Location" parent="." instance=ExtResource("2_phj4u")]
@@ -53,7 +53,6 @@ height = 15
 num_holes = 20
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
 energy = 1.2
 blend_mode = 1
 

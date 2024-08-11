@@ -79,7 +79,7 @@ scale = Vector2(4.5, 4)
 texture = SubResource("GradientTexture2D_1xof5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.1, 0.1)
+zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 
 [node name="Movement" type="AudioStreamPlayer2D" parent="."]
