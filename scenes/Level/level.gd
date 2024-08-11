@@ -35,12 +35,12 @@ func _physics_process(delta):
 func Take(body : _TakeObject):
 	if is_taked:
 		return
-	
+
 	is_taked = true
 	body_pipe = body
 	is_placed = false
 	TakeAndPlaceSound(take_sound)
-	
+
 func Place(zone_place : _PlaceObject):
 	if is_taked and zone_place.install_pipe(body_pipe):
 		is_placed = true
