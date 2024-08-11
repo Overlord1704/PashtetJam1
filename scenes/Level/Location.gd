@@ -157,7 +157,7 @@ func build():
 				var place_scene = PlaceScene.instantiate()
 				place_scene.add_child(new_element)
 				add_child(place_scene)
-				place_scene.global_position = pos
+				place_scene.position = pos
 
 				# сцена элемента трубы
 				var pipe_element = new_element.duplicate()
