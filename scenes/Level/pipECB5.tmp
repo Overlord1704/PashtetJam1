@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://by4etgj6edbef"]
+
+[ext_resource type="Script" path="res://scenes/Level/Pipe.gd" id="1_27hdg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msv3a"]
+size = Vector2(20, 16)
+
+[node name="Pipe" type="StaticBody2D"]
+z_index = 1
+script = ExtResource("1_27hdg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_msv3a")
