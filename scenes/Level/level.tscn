@@ -19,6 +19,7 @@ size = Vector2(0.841282, 53.1572)
 [node name="Level" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_bgy22")
 player = NodePath("Player")
+Fragments = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-18.5414, -12.5821)
@@ -53,7 +54,7 @@ num_holes = 15
 energy = 1.2
 blend_mode = 1
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Ambient" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_22r2e")
 volume_db = 10.0
 autoplay = true

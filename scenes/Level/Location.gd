@@ -3,7 +3,7 @@ extends Node2D
 @export_category("Generation")
 @export var width: int = 12
 @export var height: int = 12
-@export var num_holes: int = 4
+@export var num_holes: int = 4 # Кол-во дырок
 @export var hole_min: int = 2
 @export var hole_max: int = 4
 @export var random_add: int = 32
