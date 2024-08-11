@@ -1,5 +1,4 @@
 extends Node2D
-class_name _GameTimer
 
 signal game_over
 
