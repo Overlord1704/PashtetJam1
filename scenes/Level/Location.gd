@@ -1,5 +1,13 @@
 extends Node2D
 
+@export_category("Generation")
+@export var width: int = 12
+@export var height: int = 12
+@export var num_holes: int = 4
+@export var hole_min: int = 2
+@export var hole_max: int = 4
+@export var random_add: int = 32
+@export var random_sub: int = 8
 
 var _grid = []
 var _visited = []
@@ -33,27 +41,45 @@ func get_broken():
 
 func _ready():
 
-	generate_grid(12, 12)
+	generate_grid()
 	generate_pipes()
 
 	build()
 
 
-func generate_grid(width, height):
+func generate_grid():
 	# создание решетки
 	_grid = []
 	for i in range(height):
 		var row = []
 		for j in range(width):
-			row.append(true)
+			if i % 3 == 0 or j % 3 == 0:
+				row.append(true)
+			else:
+				row.append(false)
 		_grid.append(row)
+
+	# произвольное добавление ячеек
+	for i in range(random_add):
+		var ri = randi_range(0, height - 1)
+		var rj = randi_range(0, width - 1)
+		_grid[ri][rj] = true
+
+	# произвольное убирание ячеек
+	for i in range(random_sub):
+		var ri = randi_range(0, height - 1)
+		var rj = randi_range(0, width - 1)
+		_grid[ri][rj] = false
 
 	var holes = []
 
-	var N = 5
-	while holes.size() < N:
-		var w = randi_range(width / 4, width / 2)
-		var h = randi_range(height / 4, height / 2)
+	var iter = 0
+	var max_iter = 100
+
+	var N = num_holes
+	while holes.size() < N and iter < max_iter:
+		var w = randi_range(hole_min, hole_max)
+		var h = randi_range(hole_min, hole_max)
 
 		var x = randi_range(-w, width - 1)
 		var y = randi_range(-h, height - 1)
@@ -62,15 +88,16 @@ func generate_grid(width, height):
 
 		var found = false
 		for hole: Rect2i in holes:
-			if hole.intersects(new_hole.grow(2)):
+			if hole.intersects(new_hole.grow(1)):
 				found = true
 
 		if not found:
 			holes.append(new_hole)
 
+		iter += 1
 		#_grid[y][x] = false
 
-	print(holes)
+	print(holes.size())
 
 	var counter = 0
 	for hole: Rect2i in holes:
@@ -130,7 +157,7 @@ func build():
 				var place_scene = PlaceScene.instantiate()
 				place_scene.add_child(new_element)
 				add_child(place_scene)
-				place_scene.global_position = pos
+				place_scene.position = pos
 
 				# сцена элемента трубы
 				var pipe_element = new_element.duplicate()
@@ -147,7 +174,7 @@ func build():
 				#pipe_scene.position = Vector2(w, 0) + random_pos
 				var random_pos = spawn_pipe(w, h)
 				pipe_scene.position = random_pos
-				print(random_pos)
+				# print(random_pos)
 
 				pipe_scene.rotation = randf() * PI * 2.0
 			else:
@@ -280,12 +307,18 @@ func generate_pipes(num_broken: int = 8):
 		_pipes[pos.y][pos.x] = s_code
 
 	# взять num_broken случайных элементов
+	var iter_broken = 0
+	var max_iter_broken = 100
+
 	var broken = []
-	while broken.size() < num_broken:
+	while broken.size() < num_broken and iter_broken < max_iter_broken:
 		var num = randi_range(0, results.size() - 1)
 		if num in broken:
 			continue
 		broken.append(num)
+		iter_broken += 1
+
+	print("Broken: ", broken.size())
 
 	_broken = []
 	_broken_codes = []

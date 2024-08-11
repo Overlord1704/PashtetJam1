@@ -21,6 +21,10 @@ config/icon="res://icon.svg"
 window/layer_4=""
 window/layer_3="ПоднятьТрубы"
 
+[editor]
+
+movie_writer/movie_file="/home/cosminog/Public/Cloud/DevJam1/Media/gameplay_jam.avi"
+
 [input]
 
 RightButton={

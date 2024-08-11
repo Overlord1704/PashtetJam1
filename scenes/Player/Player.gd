@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 signal take_object
 signal place_object
@@ -10,7 +11,7 @@ var MousePosition : Vector2
 
 func _ready():
 	$CanvasLayer/GameTimer.game_over.connect(GameOver)
-	
+
 func _input(event):
 	### Отвечает за поворот персонажа ###
 	MousePosition = get_global_mouse_position()
