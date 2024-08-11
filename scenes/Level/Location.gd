@@ -307,12 +307,18 @@ func generate_pipes(num_broken: int = 8):
 		_pipes[pos.y][pos.x] = s_code
 
 	# взять num_broken случайных элементов
+	var iter_broken = 0
+	var max_iter_broken = 100
+
 	var broken = []
-	while broken.size() < num_broken:
+	while broken.size() < num_broken and iter_broken < max_iter_broken:
 		var num = randi_range(0, results.size() - 1)
 		if num in broken:
 			continue
 		broken.append(num)
+		iter_broken += 1
+
+	print("Broken: ", broken.size())
 
 	_broken = []
 	_broken_codes = []
