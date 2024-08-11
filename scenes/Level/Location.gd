@@ -14,6 +14,8 @@ var _visited = []
 var _pipes = []
 var _broken = []
 var _broken_codes = []
+var _sprites = []
+var _sprites_broken = []
 
 var DIRS = [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]
 var S_DIRS = 'lrud'
@@ -80,6 +82,7 @@ func generate_grid():
 		var rj = randi_range(0, width - 1)
 		_grid[ri][rj] = false
 
+	# вырезание пустот на карте
 	var holes = []
 
 	var iter = 0
@@ -144,7 +147,17 @@ func build():
 	var n = _grid.size()
 	var m = _grid[0].size()
 
+	# таблица спрайтов
+	_sprites = []
+	for i in range(n):
+		var row = []
+		for j in range(m):
+			row.append(null)
+		_sprites.append(row)
+
 	var broken_scenes = []
+
+	_sprites_broken = []
 
 	for i in range(n):
 		for j in range(m):
@@ -171,6 +184,10 @@ func build():
 				place_scene.type = type
 				place_scene.code = code
 
+				_sprites[i][j] = place_scene.get_sprite()
+				_sprites_broken.append(place_scene.get_sprite())
+				#print('Sprites Broken: ', _sprites_broken.size())
+
 				# сцена элемента трубы
 				var pipe_element = new_element.duplicate()
 				pipe_element.position = Vector2.ZERO
@@ -192,9 +209,11 @@ func build():
 
 				pipe_scene.rotation = randf() * PI * 2.0
 			else:
-				new_element.global_position = pos
+				new_element.position = pos
 				pipes.add_child(new_element)
 				new_element.show()
+
+				_sprites[i][j] = new_element
 
 
 func spawn_pipe(width, height):
@@ -326,11 +345,11 @@ func generate_pipes(num_broken: int = 8):
 
 	var broken = []
 	while broken.size() < num_broken and iter_broken < max_iter_broken:
+		iter_broken += 1
 		var num = randi_range(0, results.size() - 1)
 		if num in broken:
 			continue
 		broken.append(num)
-		iter_broken += 1
 
 	print("Broken: ", broken.size())
 
@@ -339,3 +358,24 @@ func generate_pipes(num_broken: int = 8):
 	for num in broken:
 		_broken.append(results[num][0])
 		_broken_codes.append(neighbors[num])
+
+
+func _process(delta):
+	var n = _grid.size()
+	var m = _grid[0].size()
+
+	#print(_sprites_broken.size())
+
+	for _broken_sprite in _sprites_broken:
+		#print(_broken_sprite)
+		if not _broken_sprite.visible:
+			continue
+
+		var pos0 = _broken_sprite.global_position
+		for i in range(n):
+			for j in range(m):
+				var sprite: Sprite2D = _sprites[i][j]
+
+				if sprite and pos0.distance_to(sprite.global_position) < 32 * 8:
+					sprite.self_modulate = Color.BLUE
+
