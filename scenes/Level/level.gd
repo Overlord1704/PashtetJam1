@@ -16,19 +16,24 @@ func _ready():
 func _physics_process(delta):
 	if is_taked:
 		body_pipe.position = player.position
-	if is_placed:
+	if is_placed and body_pipe != null:
 		body_pipe.position = place.position
+		body_pipe.active = false
 
 func Take(body : _TakeObject):
-	if !body_pipe:
-		is_taked = true
-		body_pipe = body
+	if is_taked:
+		return
+
+	is_taked = true
+	body_pipe = body
+	is_placed = false
 
 func Place(zone_place : _PlaceObject):
-	if body_pipe:
+	if is_taked and zone_place.install_pipe(body_pipe):
 		is_placed = true
 		place = zone_place
 		is_taked = false
+		body_pipe.queue_free()
 
 func QuitGame():
 	get_tree().change_scene_to_file("res://scenes/StartMenu/start_menu.tscn")

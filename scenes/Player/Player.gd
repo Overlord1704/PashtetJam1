@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name Player
+#class_name Player
 
 signal take_object
 signal place_object
@@ -11,6 +11,7 @@ var MousePosition : Vector2
 
 func _ready():
 	$CanvasLayer/GameTimer.game_over.connect(GameOver)
+	$AudioStreamPlayer.play(0)
 
 func _input(event):
 	### Отвечает за поворот персонажа ###
@@ -19,6 +20,6 @@ func _input(event):
 
 func _physics_process(delta):
 	VelocityComponent.Move(self) # Перс двигается
-
+		
 func GameOver():
 	quit_game.emit()

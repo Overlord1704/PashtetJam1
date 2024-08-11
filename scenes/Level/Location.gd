@@ -34,6 +34,15 @@ var PlaceScene = preload("res://scenes/Level/place.tscn")
 	'lrud': $Elements/PipeLRUD
 }
 
+# 5 types: I, J, T, X, O
+const TYPES = {
+	'': '',
+	'l': 'O', 'r': 'O', 'u': 'O', 'd': 'O',
+	'lr': 'I', 'ud': 'I',
+	'ld': 'J', 'lu': 'J', 'ru': 'J', 'rd': 'J',
+	'lrd': 'T', 'rud': 'T', 'lud': 'T', 'lru': 'T',
+	'lrud': 'X'
+}
 
 func get_broken():
 	return _broken
@@ -144,6 +153,7 @@ func build():
 			#var new_element: Label = label.duplicate()
 			#new_element.text = _pipes[i][j]
 			var code = _pipes[i][j]
+			var type = TYPES[code]
 
 			if len(code) == 0:
 				continue
@@ -154,18 +164,22 @@ func build():
 
 			if Vector2i(j, i) in _broken:
 				# сцена плейса трубы
-				var place_scene = PlaceScene.instantiate()
-				place_scene.add_child(new_element)
+				var place_scene: _PlaceObject = PlaceScene.instantiate()
+				place_scene.set_sprite(new_element)
 				add_child(place_scene)
 				place_scene.position = pos
+				place_scene.type = type
+				place_scene.code = code
 
 				# сцена элемента трубы
 				var pipe_element = new_element.duplicate()
 				pipe_element.position = Vector2.ZERO
-				var pipe_scene = PipeScene.instantiate()
+				var pipe_scene: _TakeObject = PipeScene.instantiate()
 				pipe_scene.add_child(pipe_element)
 				add_child(pipe_scene)
 				pipe_element.show()
+				pipe_scene.type = type
+				pipe_scene.code = code
 
 				var w = TILE * (m + 0.5)
 				var h = TILE * (n + 0.5)
