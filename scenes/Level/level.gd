@@ -2,6 +2,7 @@ extends Node2D
 
 
 @export var player : CharacterBody2D
+@export var location : Node2D
 @export var take_sound : AudioStream
 @export var place_sound : AudioStream
 
