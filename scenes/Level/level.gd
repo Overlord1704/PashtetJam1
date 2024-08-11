@@ -15,8 +15,10 @@ func _ready():
 
 func _physics_process(delta):
 	if is_taked:
+		$TakePipe.play(0)
 		body_pipe.position = player.position
 	if is_placed and body_pipe != null:
+		$PlacePipe.play(0)
 		body_pipe.position = place.position
 		body_pipe.active = false
 

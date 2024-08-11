@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://rxqvvuu4kf8i"]
+[gd_scene load_steps=10 format=3 uid="uid://rxqvvuu4kf8i"]
 
 [ext_resource type="PackedScene" uid="uid://cxs4qmnvhaqs2" path="res://scenes/Player/player.tscn" id="1_0m6js"]
 [ext_resource type="TileSet" uid="uid://cnmco5m875471" path="res://scenes/Level/sand.tres" id="1_7oxu2"]
@@ -6,10 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://ch1ssmfxjtmxq" path="res://scenes/Level/location.tscn" id="2_phj4u"]
 [ext_resource type="Script" path="res://scenes/Level/SandMap.gd" id="2_urldr"]
 [ext_resource type="AudioStream" uid="uid://h1r4ccf82tu0" path="res://assets/Audio/Ambient.mp3" id="6_22r2e"]
+[ext_resource type="Texture2D" uid="uid://dm4je2txt7yn7" path="res://assets/Background/Black(1)(1)(1)(1).png" id="7_qayyb"]
+[ext_resource type="AudioStream" uid="uid://cwmhm3ypiig5p" path="res://assets/Audio/tube 2.wav" id="8_b4fjl"]
+[ext_resource type="AudioStream" uid="uid://dn012sr5yys23" path="res://assets/Audio/tube 3.wav" id="9_kwuh1"]
 
 [node name="Level" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_bgy22")
 player = NodePath("Player")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.751221, 7.32385)
+scale = Vector2(25.5018, 30.6479)
+texture = ExtResource("7_qayyb")
 
 [node name="SandMap" type="TileMap" parent="."]
 modulate = Color(0.501961, 0.501961, 0.501961, 1)
@@ -27,10 +35,16 @@ position = Vector2(0.75, 0.75)
 scale = Vector2(4, 4)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 2.0
+energy = 1.2
 blend_mode = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_22r2e")
 volume_db = 10.0
 autoplay = true
+
+[node name="TakePipe" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_b4fjl")
+
+[node name="PlacePipe" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_kwuh1")
