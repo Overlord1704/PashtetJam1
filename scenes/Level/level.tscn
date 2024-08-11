@@ -19,7 +19,7 @@ size = Vector2(0.841282, 53.1572)
 [node name="Level" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_bgy22")
 player = NodePath("Player")
-Fragments = 1
+Fragments = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-18.5414, -12.5821)
