@@ -11,7 +11,6 @@ size = Vector2(32, 32)
 [node name="Test" type="StaticBody2D"]
 collision_layer = 4
 script = ExtResource("1_tipy8")
-active = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

@@ -18,14 +18,14 @@ func _physics_process(delta):
 		body_pipe.position = player.position
 	if is_placed:
 		body_pipe.position = place.position
-		body_pipe.active = false
 
 func Take(body : _TakeObject):
-	is_taked = true
-	body_pipe = body
+	if !body_pipe:
+		is_taked = true
+		body_pipe = body
 
 func Place(zone_place : _PlaceObject):
-	if is_taked:
+	if body_pipe:
 		is_placed = true
 		place = zone_place
 		is_taked = false

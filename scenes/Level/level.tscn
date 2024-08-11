@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://1t1cslvk6maj"]
+[gd_scene load_steps=6 format=3 uid="uid://rxqvvuu4kf8i"]
 
 [ext_resource type="PackedScene" uid="uid://cxs4qmnvhaqs2" path="res://scenes/Player/player.tscn" id="1_0m6js"]
-[ext_resource type="TileSet" uid="uid://g6txkb7clpm2" path="res://scenes/Level/sand.tres" id="1_7oxu2"]
+[ext_resource type="TileSet" uid="uid://cnmco5m875471" path="res://scenes/Level/sand.tres" id="1_7oxu2"]
 [ext_resource type="Script" path="res://scenes/Level/level.gd" id="1_bgy22"]
 [ext_resource type="PackedScene" uid="uid://ch1ssmfxjtmxq" path="res://scenes/Level/location.tscn" id="2_phj4u"]
 [ext_resource type="Script" path="res://scenes/Level/SandMap.gd" id="2_urldr"]
