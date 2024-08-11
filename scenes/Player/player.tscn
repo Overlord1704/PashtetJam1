@@ -1,38 +1,44 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxs4qmnvhaqs2"]
+[gd_scene load_steps=11 format=3 uid="uid://cxs4qmnvhaqs2"]
 
 [ext_resource type="Script" path="res://scenes/Player/Player.gd" id="1_1pdg5"]
 [ext_resource type="Texture2D" uid="uid://cfuga4jo8atii" path="res://assets/Robot/robot_round_b.png" id="2_kttuv"]
+[ext_resource type="Script" path="res://scenes/Player/GameTimer/game_timer.gd" id="3_dj7tp"]
 [ext_resource type="PackedScene" uid="uid://yy5ob4wtn7fe" path="res://scenes/Player/VelocityComponent/velocity_component.tscn" id="3_rg40q"]
 [ext_resource type="PackedScene" uid="uid://yur5r2715hyo" path="res://scenes/Player/ControllerComponent/controller_component.tscn" id="4_c3ftc"]
 [ext_resource type="PackedScene" uid="uid://bgw4symbyd22u" path="res://scenes/TakeAndPlaceComponent/take_and_place_component.tscn" id="5_gy078"]
+[ext_resource type="PackedScene" uid="uid://dltfrin3pdaa" path="res://scenes/Level/GameTimer/game_timer.tscn" id="6_nxekh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8obx"]
-size = Vector2(128, 128)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o472u"]
+size = Vector2(64, 64)
 
-[sub_resource type="Gradient" id="Gradient_yr2km"]
-offsets = PackedFloat32Array(0.246753, 0.967532)
+[sub_resource type="Gradient" id="Gradient_r8avo"]
+offsets = PackedFloat32Array(0.038961, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_sofmp"]
-gradient = SubResource("Gradient_yr2km")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b5g1r"]
+gradient = SubResource("Gradient_r8avo")
 fill = 1
-fill_from = Vector2(0.486239, 0.536697)
-fill_to = Vector2(0.986239, 0.775229)
+fill_from = Vector2(0.146789, 0.486239)
+fill_to = Vector2(1, 1)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("VelocityComponent")]
-collision_mask = 2
-motion_mode = 1
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("VelocityComponent")]
 script = ExtResource("1_1pdg5")
 VelocityComponent = NodePath("VelocityComponent")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0.160784, 0.729412, 1)
-rotation = 1.55567
-scale = Vector2(9.67143, 9.67143)
-texture = ExtResource("2_kttuv")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameTimer" parent="CanvasLayer" instance=ExtResource("6_nxekh")]
+position = Vector2(456, 56)
+script = ExtResource("3_dj7tp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_s8obx")
+shape = SubResource("RectangleShape2D_o472u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, 1.90735e-06)
+rotation = 1.56946
+scale = Vector2(5, 5)
+texture = ExtResource("2_kttuv")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("3_rg40q")]
 
@@ -41,11 +47,9 @@ VelocityComponent = NodePath("../VelocityComponent")
 
 [node name="TakeAndPlaceComponent" parent="." instance=ExtResource("5_gy078")]
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(48, 0)
+texture = SubResource("GradientTexture2D_b5g1r")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
-position_smoothing_speed = 1.0
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(96, 0)
-scale = Vector2(3.25, 1.5)
-texture = SubResource("GradientTexture2D_sofmp")

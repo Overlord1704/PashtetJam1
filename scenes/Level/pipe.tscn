@@ -1,14 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://by4etgj6edbef"]
+[gd_scene load_steps=4 format=3 uid="uid://cllq00tvqjbsi"]
 
-[ext_resource type="Script" path="res://scenes/Level/Pipe.gd" id="1_27hdg"]
+[ext_resource type="Script" path="res://scenes/Level/Pipe.gd" id="1_tipy8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sln40"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_p300x"]
+radius = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo0mm"]
 size = Vector2(32, 32)
 
-[node name="Pipe" type="Area2D"]
+[node name="Test" type="StaticBody2D"]
 collision_layer = 4
-collision_mask = 0
-script = ExtResource("1_27hdg")
+script = ExtResource("1_tipy8")
+active = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_p300x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_sln40")
+shape = SubResource("RectangleShape2D_uo0mm")
+debug_color = Color(0.94922, 0.217945, 0.158976, 0.42)
