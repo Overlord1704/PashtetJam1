@@ -94,3 +94,12 @@ position = Vector2(4563, -6)
 scale = Vector2(513.502, 155.181)
 shape = SubResource("RectangleShape2D_cue3r")
 debug_color = Color(0.510279, 0.549334, 0.502884, 0.42)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CurrFragments" type="Label" parent="CanvasLayer"]
+offset_left = 1295.0
+offset_top = 142.0
+offset_right = 1335.0
+offset_bottom = 165.0
+text = "Восстановлено фрагментов: "

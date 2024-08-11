@@ -13,6 +13,7 @@ offset_right = 384.0
 offset_bottom = 16.0
 tooltip_text = "Время"
 theme_override_styles/fill = SubResource("StyleBoxFlat_ej2yh")
+step = 0.005
 value = 100.0
 show_percentage = false
 

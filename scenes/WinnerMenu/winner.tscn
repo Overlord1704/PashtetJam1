@@ -14,16 +14,16 @@ func _on_button_pressed():
 script = SubResource("GDScript_uypns")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(580.585, 326.042)
-scale = Vector2(4.16968, 3.08451)
+position = Vector2(971.993, 548.582)
+scale = Vector2(6.98556, 5.16432)
 texture = ExtResource("1_kkoen")
 
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
-offset_left = 328.0
-offset_top = 136.0
-offset_right = 768.0
-offset_bottom = 320.0
+offset_left = 800.0
+offset_top = 184.0
+offset_right = 1240.0
+offset_bottom = 368.0
 theme_override_font_sizes/font_size = 30
 text = "Победа! Вы прошли игру!"
 horizontal_alignment = 1
@@ -31,10 +31,10 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 texture_filter = 1
-offset_left = 496.0
-offset_top = 384.0
-offset_right = 624.0
-offset_bottom = 448.0
+offset_left = 952.0
+offset_top = 440.0
+offset_right = 1080.0
+offset_bottom = 504.0
 text = "Выход в меню"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
