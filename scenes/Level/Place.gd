@@ -10,6 +10,9 @@ func set_sprite(sprite):
 	_sprite = sprite
 	add_child(_sprite)
 
+func get_sprite():
+	return _sprite
+
 func check(other: String):
 	return other == type
 

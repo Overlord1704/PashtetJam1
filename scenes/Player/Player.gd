@@ -8,6 +8,8 @@ signal quit_game
 @export var VelocityComponent : _VelocityComponent
 @export var SoundMovement : AudioStreamPlayer2D
 
+@onready var marker = $Marker2D
+
 var MousePosition : Vector2
 
 func _ready():
@@ -21,6 +23,6 @@ func _input(event):
 
 func _physics_process(delta):
 	VelocityComponent.Move(self) # Перс двигается
-		
+
 func GameOver():
 	quit_game.emit()

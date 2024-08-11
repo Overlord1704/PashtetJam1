@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxs4qmnvhaqs2"]
+[gd_scene load_steps=14 format=3 uid="uid://cxs4qmnvhaqs2"]
 
 [ext_resource type="Script" path="res://scenes/Player/Player.gd" id="1_1pdg5"]
 [ext_resource type="PackedScene" uid="uid://iqtcamt16khs" path="res://scenes/Player/GameTimer/game_timer.tscn" id="2_cpba7"]
@@ -12,24 +12,28 @@
 size = Vector2(64, 64)
 
 [sub_resource type="Gradient" id="Gradient_r8avo"]
-offsets = PackedFloat32Array(0, 0.415584, 0.668831)
+offsets = PackedFloat32Array(0, 0.292208, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_m2jjd"]
 gradient = SubResource("Gradient_r8avo")
-fill_from = Vector2(0.348624, 0.545872)
-fill_to = Vector2(0.266055, 0.770642)
+fill_from = Vector2(0.3, 0.5)
+fill_to = Vector2(0.1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_b5g1r"]
 gradient = SubResource("Gradient_r8avo")
-fill_from = Vector2(0.348624, 0.545872)
-fill_to = Vector2(0.197248, 0.201835)
+fill_from = Vector2(0.3, 0.5)
+fill_to = Vector2(0.1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_e3bvt"]
-gradient = SubResource("Gradient_r8avo")
+[sub_resource type="Gradient" id="Gradient_bwdlu"]
+offsets = PackedFloat32Array(0, 0.779221)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1xof5"]
+gradient = SubResource("Gradient_bwdlu")
 fill = 1
-fill_from = Vector2(0.5, 0.490826)
-fill_to = Vector2(0.192661, 0.880734)
+fill_from = Vector2(0.504587, 0.527523)
+fill_to = Vector2(0.100917, 0.142202)
 
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("VelocityComponent", "SoundMovement")]
 script = ExtResource("1_1pdg5")
@@ -58,24 +62,28 @@ VelocityComponent = NodePath("../VelocityComponent")
 [node name="TakeAndPlaceComponent" parent="." instance=ExtResource("5_gy078")]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(268, 64)
-scale = Vector2(7.625, 2)
+position = Vector2(336, 96)
+scale = Vector2(9.5, 3)
 energy = 5.0
 texture = SubResource("GradientTexture2D_m2jjd")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(268, -64)
-scale = Vector2(7.625, 2)
+position = Vector2(334, -96)
+scale = Vector2(9.5625, 3)
 energy = 5.0
 texture = SubResource("GradientTexture2D_b5g1r")
 
 [node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(8, 0)
 scale = Vector2(4.5, 4)
 energy = 5.0
-texture = SubResource("GradientTexture2D_e3bvt")
+texture = SubResource("GradientTexture2D_1xof5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
 [node name="Movement" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_d6n64")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(80, 0)

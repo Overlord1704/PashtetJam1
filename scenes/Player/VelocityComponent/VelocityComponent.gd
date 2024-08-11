@@ -12,13 +12,13 @@ var ACCELERATION = 0.1 # Как быстро он ускоряется
 var BORDER := 80 # Границы, за которые velocity не может выйти
 
 var is_accel : bool # Ускоряется на ПКМ?
-var is_friction : bool # Замедляется? 
+var is_friction : bool # Замедляется?
 
 func _physics_process(delta):
 	Velocity += Transform.x * speed*ACCELERATION
 	Velocity.x = clamp(Velocity.x,-BORDER,BORDER)
 	Velocity.y = clamp(Velocity.y,-BORDER,BORDER)
-	
+
 	if is_accel:
 		Acceleration()
 	elif is_friction:
